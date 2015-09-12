@@ -1,0 +1,111 @@
+[
+     { "keys": ["alt+m"], "command": "markdown_preview", "args": {"target": "browser", "parser":"markdown"} },
+
+      // ホームポジションのキーバインディング
+    { "keys": ["ctrl+l"], "command": "move", "args": {"by": "characters", "forward": true } }, //右
+    { "keys": ["ctrl+j"], "command": "move", "args": {"by": "characters", "forward": false } }, //左
+    { "keys": ["ctrl+i"], "command": "move", "args": {"by": "lines", "forward": false } }, //上
+    { "keys": ["ctrl+,"], "command": "move", "args": {"by": "lines", "forward": true} },  //下
+
+     // 1単語右に移動
+    { "keys": ["ctrl+alt+l"], "command": "move", "args": { "by": "words", "forward": true} },
+    // 1単語左に移動
+    { "keys": ["ctrl+alt+j"], "command": "move", "args": { "by": "words", "forward": false} },
+
+//行末移動
+{ "keys": ["super+;"], "command": "move_to", "args": {"to": "eol", "extend": false} },
+
+//行頭移動
+{ "keys": ["shift+super+;"], "command": "move_to", "args": {"to": "bol", "extend": false} },
+
+// ファイルの先頭に移動
+  { "keys": ["ctrl+super+i"], "command": "move_to", "args": {
+    "to": "bof", "extend": false}
+  },
+
+   // ファイルの最後に移動
+  { "keys": ["ctrl+super+n"], "command": "move_to", "args": {
+    "to": "eof", "extend": false}
+  },
+
+  // 選択しつつ右にカーソル移動
+  { "keys": ["ctrl+shift+l"], "command": "move", "args": {
+    "by": "characters", "forward": true, "extend":true}
+  },
+
+  // 選択しつつ左にカーソル移動
+  { "keys": ["ctrl+shift+j"], "command": "move", "args": {
+    "by": "characters", "forward": false, "extend":true}
+  },
+
+// 選択しつつ上にカーソル移動
+  { "keys": ["ctrl+shift+i"], "command": "move", "args": {
+    "by": "lines", "forward": false, "extend":true}
+  },
+
+  // 辞書で開く
+  { "keys": ["super+ctrl+d"], "command": "dash_doc"},
+
+  // 選択しつつ下にカーソル移動
+  { "keys": ["ctrl+shift+n"], "command": "move", "args": {
+    "by": "lines", "forward": true, "extend":true}
+  },
+
+  // Go to CSS description
+   {
+        "keys": ["ctrl+]"], "command": "goto_css_declaration",
+        "args": {"goto": "next"}
+    },
+    {
+        "keys": ["ctrl+["],  "command": "goto_css_declaration",
+        "args": {"goto": "prev"}
+    },
+// ConvertToUTF8のGBKError回避
+    {
+    "keys": ["shift+super+c"],
+    "command": "null"
+},
+
+// mozc
+ { "keys": ["ctrl+space"], "command": "toggle_mozc" },
+
+// Zenkaku Space
+{"keys":[" "],
+ "command":"insert",
+ "args":{"characters":"　"},
+ "context":[{"key":"mozc_mode"}]},
+
+// 上記設定により、入力確定時に全角スペースに置き換わる現象を回避するため
+{"keys":[" "],
+ "command": "mozc_send_key",
+ "args":{"key": "space"},
+ "context": [{"key":"mozc_input_mode"}]},
+
+// Hankaku Space
+{"keys":["shift+space"],
+ "command":"insert",
+ "args":{"characters":" "},
+ "context":[{"key":"mozc_mode"}]},
+
+// shift を押しながら半角英数字入力中にshift+spaceを押した時に文字が消える現象を回避し、半角スペースが入力されるようにするため
+{"keys":["shift+space"],
+ "command": "mozc_send_key",
+ "args":{"key": "space"},
+ "context": [{"key":"mozc_input_mode"}]},
+
+// mozc
+ {"keys": ["shift+enter"],
+ "command": "mozc_send_key",
+ "args": {"key": "enter"},
+ "context": [{"key": "mozc_input_mode"}]},
+
+// mozc
+{"keys": ["ctrl+enter"],
+ "command": "mozc_send_key",
+ "args": {"key": "enter"},
+ "context": [{"key": "mozc_input_mode"}]},
+
+// sublime ERB用
+{ "keys": ["ctrl+shift+."], "command": "erb" },
+
+]
